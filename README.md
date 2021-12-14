@@ -1,2 +1,24 @@
-# Bing-Daily-Wallpaper-Viewer-with-Vue-JS-3
-I created this bing image viewer for fun. I was trying to learn Vue 3 with axios and I saw dynamic theme on windows and that is where I got the idea to make this project.
+# bing-images-viewer
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
