@@ -80,7 +80,7 @@ export default {
   },
   created(){
     
-    var api = "https://cors-anywhere.herokuapp.com/https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=en-US"
+    var api = "https://api.codetabs.com/v1/proxy?quest=https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=en-US"
     axios.get(api).then((response) => {
       this.imageList = response.data.images
       console.log(response.data.images)
