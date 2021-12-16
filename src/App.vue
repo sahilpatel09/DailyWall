@@ -68,7 +68,7 @@ export default {
         },
 
     newSearch: function () {
-      var api = "https://cors-anywhere.herokuapp.com/https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n="+ this.numberofImages +"&mkt="+ this.numberofImages
+      var api = "https://api.codetabs.com/v1/proxy?quest=https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n="+ this.numberofImages +"&mkt="+ this.numberofImages
     axios.get(api).then((response) => {
       this.imageList = response.data.images
       console.log(response.data.images)
