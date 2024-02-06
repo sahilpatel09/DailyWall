@@ -1,23 +1,13 @@
 <template>
-  <div class="container">
-
-
-
-      <div v-for="i, item in imageList" :key="item">
-        <img :src="'https://bing.com' + i.url" alt="" width="1000px">
-      </div>
-
-
-
-    <div class="row d-flex justify-content-center mainRow">
+  <div class="container mx-auto">
+    <div class="flex justify-content-center mainRow">
       <div class="col-md-6">
         <h2>Bing Wallpapers Viewer</h2>
         <p> I have made this just to learn axios with vue 3. It uses the Bing daily image archive API. I could max fetch
           only 8 images from the api. Feel free to use it and contribute to design. </p>
       </div>
 
-
-      <!-- <div class="col-md-6">
+      <div class="col-md-6">
         <form class="form-inline" @submit.prevent="newSearch">
           <div class="form-group form-inline">
             <label class="sr-only" for="pwd">Zones</label>
@@ -41,89 +31,35 @@
           </div>
           <button type="submit" class="btn btn-danger ml-3 mt-2" @submit.prevent="newSearch">Submit</button>
         </form>
-      </div> -->
+      </div>
     </div>
-    <!-- <div v-if="imageList" class="row">
-      <div v-for="image in imageList" :key="image" class="col-md-6 px-2 col-sm-6 col-xs-6">
-        <div class="card p-1" style="width: 100%">
-          <img :src="getImgUrl(image.url)" class="card-img-top" alt="">
-          <img :src="getImgUrl(image.url)" class="image"> 
-          <div class="card-body">
-            <h3 class="card-text">{{ image.title }}</h3>
-            <p class="text-muted">{{ image.copyright }}</p>
-            <a :href="getImgUrl(image.url)" download="getImgUrl(image.url)">
-              <button class="btn btn-danger" type="submit">Download</button>
-            </a>
+    <section class="text-gray-600 body-font">
+      <div class="px-5 py-24 mx-auto">
+        <div class="flex flex-wrap -mx-2 -mb-10 text-center">
+          <div class="sm:w-1/2 mb-10 px-4" v-for="i, item in imageList" :key="item">
+            <div class="rounded-lg overflow-hidden">
+              <p class="max-w-lg text-xl font-semibold leading-loose text-gray-900 dark:text-white text-left">{{ i.title
+              }}</p>
+              <p class="text-md text-gray-900 dark:text-white text-left">{{ i.copyright }}</p>
+              <img alt="content" class="object-cover object-center h-full w-full" :src="'https://bing.com' + i.url">
+            </div>
           </div>
         </div>
       </div>
-    </div> -->
-    <!-- <img v-else alt="Vue logo"
-      src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHB5dXJtbmx3eWJic3dvem00cXhrZHFkZDk2NXlocHExM3JubDJucSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uIJBFZoOaifHf52MER/giphy.gif"
-      class="rounded mx-auto d-block"> -->
+    </section>
   </div>
 </template>
-
-<!-- <script>
-import axios from 'axios'
-export default {
-  name: 'App',
-  data() {
-    return {
-      imageList: null,
-      numberofImages: 2,
-      zone: "en-US"
-    };
-  },
-  methods: {
-
-    getImgUrl: function (imagePath) {
-      return "https://bing.com" + imagePath;
-    },
-
-    newSearch: function () {
-      // var api = "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=" + this.numberofImages + "&mkt=" + this.numberofImages
-      // axios.get(api).then((response) => {
-      //   this.imageList = response.data.images
-      //   console.log(response.data.images)
-      // })
-    },
-
-
-  },
-  created() {
-    // var api = "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=2&mkt=en-US"
-    // axios.get(api).then((response) => {
-    //   this.imageList = response.data.images
-    //   console.log("ON CREATED RESPONSE " + JSON.stringify(response.data.images))
-    // })
-
-
-
-  }
-}
-</script> -->
-
-<style>
-.mainRow {
-
-  padding: 20px;
-
-}
-</style>
 <script setup>
-
 const imageList = ref()
 const numberofImages = ref()
 const zone = "en-US"
 
 onMounted(async () => {
-  const { data } = await useFetch('/api/hello')
+  const { data } = await useFetch('/api/hello?n=9')
   imageList.value = data.value
 })
 
 function getImgUrl(imagePath) {
   return "https://bing.com" + imagePath;
 }
-
 </script>
