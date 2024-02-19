@@ -10,12 +10,15 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@prisma/client": "5.9.1",
     "axios": "^1.6.7",
     "nuxt": "^3.10.1",
+    "prisma": "^5.9.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.11.3"
+    "@nuxtjs/tailwindcss": "^6.11.3",
+    "nuxt-scheduler": "^0.1.9"
   }
 }
