@@ -34,8 +34,9 @@ const numberofImages = ref()
 const zone = "en-US"
 
 onMounted(async () => {
-  const { data } = await useFetch('/api/hello?n=9')
+  const { data } = await useFetch('/api/wallpapers')
   imageList.value = data.value
+  console.log(data.value)
 })
 
 function getImgUrl(imagePath) {
