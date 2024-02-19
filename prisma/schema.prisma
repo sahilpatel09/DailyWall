@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model wallpapers {
+  id            Int       @id @default(autoincrement())
+  startdate     DateTime? @db.Date
+  enddate       DateTime? @db.Date
+  url           String?   @db.VarChar(255)
+  copyright     String?
+  copyrightlink String?   @db.VarChar(255)
+  title         String?   @db.VarChar(255)
+  quiz          String?   @db.VarChar(255)
+  hsh           String?   @db.VarChar(255) @unique
+}
