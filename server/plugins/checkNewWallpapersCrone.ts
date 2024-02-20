@@ -56,5 +56,5 @@ function startScheduler() {
       console.log(e)
     }
 
-  }).everySeconds(10);
+  }).everySeconds(43200);
 }
